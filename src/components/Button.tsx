@@ -8,8 +8,9 @@ interface ButtonProps {
 
 export const Button: FunctionComponent<ButtonProps> = ({ label, isLoading, onClick }) => (
   <button
+    type="button"
     disabled={isLoading}
-    className="flex grow items-center justify-center py-2 px-4 rounded-lg text-white bg-black hover:bg-gray-600 disabled:pointer-events-none"
+    className="flex items-center justify-center py-2 px-10 mx-auto rounded-md font-bold text-white h-11 bg-gradient-to-r from-purple-400 to-pink-600 hover:animate-pulse disabled:pointer-events-none"
     onClick={onClick}
   >
     {isLoading ? (
