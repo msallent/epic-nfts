@@ -118,7 +118,7 @@ const Home: NextPage = () => {
             Each unique. Each beautiful. Discover your NFT today.
           </h3>
           <a
-            href="https://testnets.opensea.io/collection/squarenft-vdbfju52ks"
+            href="https://testnets.opensea.io/collection/squarenft-kk21shnny3"
             target="_blank"
             rel="noreferrer"
             className="block text-white mb-6 underline text-sm"
