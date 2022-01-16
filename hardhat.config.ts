@@ -26,9 +26,9 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 1337,
     },
-    kovan: {
-      url: process.env.KOVAN_ENDPOINT || '',
-      accounts: process.env.KOVAN_PRIVATE_KEY ? [process.env.KOVAN_PRIVATE_KEY] : [],
+    rinkeby: {
+      url: process.env.RINKEBY_ENDPOINT || '',
+      accounts: process.env.RINKEBY_PRIVATE_KEY ? [process.env.RINKEBY_PRIVATE_KEY] : [],
     },
   },
   gasReporter: {
