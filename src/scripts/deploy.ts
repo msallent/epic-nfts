@@ -1,12 +1,23 @@
 import { ethers } from 'hardhat';
 
 const main = async () => {
-  const Greeter = await ethers.getContractFactory('Greeter');
-  const greeter = await Greeter.deploy('Hello, Hardhat!');
+  const myEpicNFTFactory = await ethers.getContractFactory('MyEpicNFT');
+  const myEpicNFT = await myEpicNFTFactory.deploy();
+  await myEpicNFT.deployed();
 
-  await greeter.deployed();
+  console.log('Contract deployed to:', myEpicNFT.address);
 
-  console.log('Greeter deployed to:', greeter.address);
+  let mintTx = await myEpicNFT.makeAnEpicNFT();
+  await mintTx.wait();
+  console.log('Minted NFT #1');
+
+  mintTx = await myEpicNFT.makeAnEpicNFT();
+  await mintTx.wait();
+  console.log('Minted NFT #2');
+
+  mintTx = await myEpicNFT.makeAnEpicNFT();
+  await mintTx.wait();
+  console.log('Minted NFT #3');
 };
 
 main().catch((error) => {
