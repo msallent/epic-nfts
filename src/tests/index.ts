@@ -1,17 +1,17 @@
 import { expect } from 'chai';
 import { ethers } from 'hardhat';
 
-describe('Greeter', () => {
-  it("Should return the new greeting once it's changed", async () => {
-    const Greeter = await ethers.getContractFactory('Greeter');
-    const greeter = await Greeter.deploy('Hello, world!');
-    await greeter.deployed();
+describe('MyEpicNFT', () => {
+  it('Should successfully mint an NFT when prompted', async () => {
+    const myEpicNFTFactory = await ethers.getContractFactory('MyEpicNFT');
+    const myEpicNFT = await myEpicNFTFactory.deploy();
+    await myEpicNFT.deployed();
 
-    expect(await greeter.greet()).to.equal('Hello, world!');
+    expect(await myEpicNFT.getTotalNFTs()).to.equal(0);
 
-    const setGreetingTx = await greeter.setGreeting('Hola, mundo!');
-    await setGreetingTx.wait();
+    const mintTx = await myEpicNFT.makeAnEpicNFT();
+    await mintTx.wait();
 
-    expect(await greeter.greet()).to.equal('Hola, mundo!');
+    expect(await myEpicNFT.getTotalNFTs()).to.equal(1);
   });
 });
